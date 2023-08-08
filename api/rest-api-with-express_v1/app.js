@@ -5,6 +5,7 @@ const express = require('express');
 const morgan = require('morgan');
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 
 const models = require('./models');
 const { Courses, Users } = models;
@@ -39,6 +40,9 @@ app.use(morgan('dev'));
 
 // setup express
 app.use(express.json());
+
+// Enables CORS
+app.use(cors());
 
 // async handler
 function asyncHandler(cb){
