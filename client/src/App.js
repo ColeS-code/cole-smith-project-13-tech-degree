@@ -30,19 +30,19 @@ function App() {
             <Router>
                 <HeaderWithContext/>
                 <Routes>
-                    <Route exact path="/" component={withContext(Courses)} />
+                    <Route exact path="/" element={withContext(<Courses />)} />
                     {/* Private routes are protected by User Auth, so it will redirect unless authenticated */}
-                    <PrivateRoute exact path="/courses/create" component={withContext(CreateCourse)} />
-                    <PrivateRoute exact path="/courses/:id/update" component={withContext(UpdateCourse)} />
-                    <Route exact path="/courses/:id" component={withContext(CourseDetail)} />
-                    <Route exact path="/signin" component={withContext(UserSignIn)} />
-                    <Route exact path="/signup" component={withContext(UserSignUp)} />
-                    <Route exact path="/signout" component={withContext(UserSignOut)} />
+                    <PrivateRoute exact path="/courses/create" element={withContext(<CreateCourse />)} />
+                    <PrivateRoute exact path="/courses/:id/update" element={withContext(<UpdateCourse />)} />
+                    <Route exact path="/courses/:id" element={withContext(<CourseDetail />)} />
+                    <Route exact path="/signin" element={withContext(<UserSignIn />)} />
+                    <Route exact path="/signup" element={withContext(<UserSignUp />)} />
+                    <Route exact path="/signout" element={withContext(<UserSignOut />)} />
 
-                    <Route exact path="/notfound" component={withContext(NotFound)} />
-                    <Route exact path="/forbidden" component={withContext(Forbidden)} />
-                    <Route exact path="/error" component={withContext(UnhandledError)} />
-                    <Route component={withContext(NotFound)}/>
+                    <Route exact path="/notfound" element={withContext(<NotFound />)} />
+                    <Route exact path="/forbidden" element={withContext(<Forbidden />)} />
+                    <Route exact path="/error" element={withContext(<UnhandledError />)} />
+                    <Route element={withContext(<NotFound/>)}/>
                 </Routes>
             </Router>
         </div>

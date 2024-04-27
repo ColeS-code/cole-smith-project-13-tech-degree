@@ -1,7 +1,7 @@
 
 'use strict';
 
-const auth = require('basic-auth');
+const useAuth = require('basic-auth');
 const bcrypt = require('bcrypt');
 const models = require('./models');
 const { Users } = models;
@@ -10,7 +10,7 @@ exports.authenticateUser = async (req, res, next) => {
     let message;
 
     // parse the user's credentials
-    const credentials = auth(req);
+    const credentials = useAuth(req);
 
     if (credentials) {
         // checks to see if a username matches and retrieves it
